@@ -12,3 +12,13 @@
 .cp-hide{align-self:flex-end;margin-bottom:12px}
 .cp-mobile:not([hidden]){display:block;position:fixed;right:max(16px,env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom));z-index:20;background:#493024;color:#fff9ef;box-shadow:0 3px 14px #49302430}
 @media(max-width:1100px){.cp-sidebar:not([hidden]){display:flex;position:relative;inset:auto;width:auto;margin:20px 22px;border:1px solid #dec8ab;border-radius:16px;max-height:650px;z-index:auto}.has-cafe-prayer{padding-bottom:0}.cp-scroll{min-height:180px}}
+
+/* Keep both the control row and content dimensions stable when toggling. */
+.has-cafe-prayer{padding-right:0;--cp-header-height:100px}
+.has-cafe-prayer>main,.has-cafe-prayer>.site-footer{padding-right:350px}
+.cp-sidebar{top:calc(var(--cp-header-height) + 64px)}
+.cp-togglebar{height:64px;display:flex;align-items:center;justify-content:flex-end;padding:10px max(22px,env(safe-area-inset-right));overflow-anchor:none}
+.cp-togglebar .cp-mobile:not([hidden]){position:static;inset:auto;display:block;box-shadow:none}
+.cp-togglebar .cp-mobile[hidden]{display:block!important;visibility:hidden;pointer-events:none}
+.cp-reserved-zone{overflow-anchor:none}
+@media(max-width:1100px){.has-cafe-prayer>main,.has-cafe-prayer>.site-footer{padding-right:0}.cp-reserved-zone{height:690px}.cp-sidebar:not([hidden]){height:650px;margin:20px 22px}.cp-togglebar{padding-inline:22px}}

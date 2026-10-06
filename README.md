@@ -60,3 +60,5 @@ Substituir o armazenamento demo por banco e API no servidor. Autenticar administ
 A aprovação deve ser transacional e definir approvedAt apenas uma vez. Entregar apenas mensagens aprovadas, pagas e não expiradas pela API pública; usar SSE ou WebSocket para aprovações e remoções, com reconexão e nova consulta do mural. Implementar reembolso real, registro de motivo e comunicação com o participante. A proposta exibida de reembolso integral por rejeição deve ser confirmada antes do lançamento. Não enviar o valor pago para o mural público.
 
 Aplicar moderação para ofensas, publicidade, dados sensíveis e promessas de bênçãos em troca de dinheiro, além de limites de uso e registro de auditoria. A demonstração não realiza essa análise automaticamente.
+
+O botão “Abrir mural” fica na linha abaixo do header, à direita. A linha e o espaço do mural continuam reservados quando recolhido, para não reposicionar o conteúdo. O foco alterna entre os controles sem rolar a página.
