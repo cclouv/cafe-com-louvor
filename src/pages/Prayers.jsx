@@ -1,0 +1,8 @@
+import { useState } from 'react';
+import { PageHeading } from '../components/Layout';
+import { prayers } from '../data/content';
+export default function Prayers() {
+  const [theme, setTheme] = useState('Todas');
+  const [light, setLight] = useState(false);
+  return <section className="container section"><PageHeading eyebrow="UM MOMENTO DE ORAÇÃO" title="Há espaço para o que está no seu coração.">Palavras para agradecer, pedir direção e entregar a Deus suas necessidades e projetos.</PageHeading><p className="notice">Textos devocionais de exemplo elaborados com apoio de IA. A biblioteca será ampliada e revisada antes do lançamento.</p><div className="filters" aria-label="Filtrar orações">{['Todas', ...new Set(prayers.map(prayer => prayer.theme))].map(item => <button key={item} aria-pressed={theme === item} className={theme === item ? 'selected' : ''} onClick={() => setTheme(item)}>{item}</button>)}</div><div className="prayer-grid">{prayers.filter(prayer => theme === 'Todas' || prayer.theme === theme).map(prayer => <article className="prayer-card" key={prayer.id}><p className="eyebrow">{prayer.theme}</p><h2>{prayer.title}</h2><p>{prayer.text}</p></article>)}</div><div className="symbolic-light"><span className={light ? 'candle lit' : 'candle'} aria-hidden="true">🕯</span><div><h2>Um gesto de esperança.</h2><p>Acenda uma luz simbólica enquanto faz sua oração. Este gesto é gratuito e fica apenas nesta página.</p><button className="button outline" aria-pressed={light} onClick={() => setLight(!light)}>{light ? 'Apagar a luz' : 'Acender uma luz'}</button><p className="light-status" role="status">{light ? 'Sua luz está acesa.' : ''}</p></div></div></section>;
+}
