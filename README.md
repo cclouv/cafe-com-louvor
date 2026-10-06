@@ -47,7 +47,7 @@ Esta versão não coleta pedidos de oração, não gera conteúdos com IA em tem
 
 ## Café & Oração — demonstração
 
-Na página inicial, o mural usa uma sidebar fixa a partir de 1101px e um mural expandido na página em telas menores. O mural começa aberto e pode ser recolhido; um botão fixo permite reabri-lo. “Deixar um café” aparece dentro do mural e abre o formulário modal. O formulário tem prévia, anonimato, temas, limite de 180 caracteres e valores simulados de R$ 5, R$ 10 ou R$ 20. Não há cobrança real.
+Na página inicial, o mural começa aberto em uma sidebar fixa à direita, abaixo do header. A partir de 850px, somente o conteúdo principal e o rodapé reservam sua largura; ao recolher, recuperam a largura total. Em telas menores, a sidebar fica sobreposta à direita, sem inserir espaço vertical. O mural tem rolagem própria. O botão de reabertura fica abaixo do header, à direita, em uma linha estável de 64px. “Deixar um café” aparece dentro do mural e abre o formulário modal. O formulário tem prévia, anonimato, temas, limite de 180 caracteres e valores simulados de R$ 5, R$ 10 ou R$ 20. Não há cobrança real.
 
 Para testar: participe, simule confirmação (ou falha) e abra **Moderação demo**. Aprove para publicar, rejeite com motivo para simular reembolso ou remova um bilhete aprovado. A aba permite testar o mural vazio e restaurar exemplos. Dados ficam no navegador via localStorage (ou apenas na sessão quando o armazenamento está indisponível), com sincronização entre abas da mesma origem. Isso não é atualização entre visitantes nem uma área administrativa protegida.
 
@@ -61,4 +61,4 @@ A aprovação deve ser transacional e definir approvedAt apenas uma vez. Entrega
 
 Aplicar moderação para ofensas, publicidade, dados sensíveis e promessas de bênçãos em troca de dinheiro, além de limites de uso e registro de auditoria. A demonstração não realiza essa análise automaticamente.
 
-O botão “Abrir mural” fica na linha abaixo do header, à direita. A linha e o espaço do mural continuam reservados quando recolhido, para não reposicionar o conteúdo. O foco alterna entre os controles sem rolar a página.
+O botão “Abrir mural” fica na linha abaixo do header, à direita. A linha do botão permanece estável. A sidebar está fora do fluxo; não cria lacunas verticais. O foco alterna entre os controles sem rolar a página.

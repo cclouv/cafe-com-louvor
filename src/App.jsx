@@ -28,5 +28,5 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
   const Page = pages[page];
-  return <div ref={shell} className={page === 'inicio' ? 'has-cafe-prayer' : undefined}><a className="skip-link" href="#content" onClick={event => { event.preventDefault(); main.current?.focus(); main.current?.scrollIntoView(); }}>Pular para o conteúdo</a><Header page={page} />{page === 'inicio' && <CafePrayer expanded={cafeExpanded} onExpandedChange={setCafeExpanded} />}<main id="content" ref={main} tabIndex={-1}><Page /></main><Footer /></div>;
+  return <div ref={shell} className={page === 'inicio' ? `has-cafe-prayer${cafeExpanded ? ' cp-expanded' : ''}` : undefined}><a className="skip-link" href="#content" onClick={event => { event.preventDefault(); main.current?.focus(); main.current?.scrollIntoView(); }}>Pular para o conteúdo</a><Header page={page} />{page === 'inicio' && <CafePrayer expanded={cafeExpanded} onExpandedChange={setCafeExpanded} />}<main id="content" ref={main} tabIndex={-1}><Page /></main><Footer /></div>;
 }
