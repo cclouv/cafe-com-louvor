@@ -6,6 +6,7 @@ import Faith from './pages/Faith';
 import Prayers from './pages/Prayers';
 import Worship from './pages/Worship';
 import Shop from './pages/Shop';
+import CafePrayer from './features/cafe-prayer/CafePrayer';
 const pages = { inicio: Home, mensagens: Messages, fe: Faith, oracoes: Prayers, louvores: Worship, lojinha: Shop };
 function readPage() { const id = window.location.hash.slice(1); return Object.hasOwn(pages, id) ? id : 'inicio'; }
 export default function App() {
@@ -17,5 +18,5 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
   const Page = pages[page];
-  return <><a className="skip-link" href="#content" onClick={event => { event.preventDefault(); main.current?.focus(); main.current?.scrollIntoView(); }}>Pular para o conteúdo</a><Header page={page} /><main id="content" ref={main} tabIndex={-1}><Page /></main><Footer /></>;
+  return <div className={page === 'inicio' ? 'has-cafe-prayer' : undefined}><a className="skip-link" href="#content" onClick={event => { event.preventDefault(); main.current?.focus(); main.current?.scrollIntoView(); }}>Pular para o conteúdo</a><Header page={page} /><main id="content" ref={main} tabIndex={-1}><Page /></main><Footer />{page === 'inicio' && <CafePrayer />}</div>;
 }

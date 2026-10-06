@@ -44,3 +44,19 @@ O build está em `dist/`. A configuração `base: './'` permite hospedar no cami
 - Validar a identidade final do mascote e substituir os desenhos de demonstração pelos assets da marca.
 
 Esta versão não coleta pedidos de oração, não gera conteúdos com IA em tempo real, não processa pagamentos e não possui sincronização com redes sociais. Não existe confirmação de envio fictícia.
+
+## Café & Oração — demonstração
+
+Na página inicial, o mural usa uma sidebar fixa a partir de 1101px e um botão que abre um painel modal em telas menores. O formulário tem prévia, anonimato, temas, limite de 180 caracteres e valores simulados de R$ 5, R$ 10 ou R$ 20. Não há cobrança real.
+
+Para testar: participe, simule confirmação (ou falha) e abra **Moderação demo**. Aprove para publicar, rejeite com motivo para simular reembolso ou remova um bilhete aprovado. A aba permite testar o mural vazio e restaurar exemplos. Dados ficam no navegador via localStorage (ou apenas na sessão quando o armazenamento está indisponível), com sincronização entre abas da mesma origem. Isso não é atualização entre visitantes nem uma área administrativa protegida.
+
+Somente registros simulados com pagamento confirmado e aprovação aparecem. Confirmações repetidas não criam cartões duplicados; a primeira aprovação inicia as 24 horas. A expiração é verificada a cada dez segundos. A lista começa pelos mais recentes e gira em grupos de três quando necessário. A rotação pausa ao passar o mouse ou focar um cartão, tem controle explícito e não inicia com movimento reduzido.
+
+### Antes de disponibilizar pagamentos reais
+
+Substituir o armazenamento demo por banco e API no servidor. Autenticar administradores e autorizar todas as ações de revisão. Criar checkout com preço validado no servidor; verificar assinatura do webhook e valor/moeda/status junto ao provedor. Garantir unicidade do ID do pagamento e processamento transacional e idempotente. Não confiar em confirmações do navegador.
+
+A aprovação deve ser transacional e definir approvedAt apenas uma vez. Entregar apenas mensagens aprovadas, pagas e não expiradas pela API pública; usar SSE ou WebSocket para aprovações e remoções, com reconexão e nova consulta do mural. Implementar reembolso real, registro de motivo e comunicação com o participante. A proposta exibida de reembolso integral por rejeição deve ser confirmada antes do lançamento. Não enviar o valor pago para o mural público.
+
+Aplicar moderação para ofensas, publicidade, dados sensíveis e promessas de bênçãos em troca de dinheiro, além de limites de uso e registro de auditoria. A demonstração não realiza essa análise automaticamente.
