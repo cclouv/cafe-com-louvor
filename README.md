@@ -47,7 +47,7 @@ Esta versão não coleta pedidos de oração, não gera conteúdos com IA em tem
 
 ## Café & Oração — demonstração
 
-Na página inicial, o mural usa uma sidebar fixa a partir de 1101px e um botão que abre um painel modal em telas menores. O formulário tem prévia, anonimato, temas, limite de 180 caracteres e valores simulados de R$ 5, R$ 10 ou R$ 20. Não há cobrança real.
+Na página inicial, o mural usa uma sidebar fixa a partir de 1101px e um mural expandido na página em telas menores. O mural começa aberto e pode ser recolhido; um botão fixo permite reabri-lo. “Deixar um café” aparece dentro do mural e abre o formulário modal. O formulário tem prévia, anonimato, temas, limite de 180 caracteres e valores simulados de R$ 5, R$ 10 ou R$ 20. Não há cobrança real.
 
 Para testar: participe, simule confirmação (ou falha) e abra **Moderação demo**. Aprove para publicar, rejeite com motivo para simular reembolso ou remova um bilhete aprovado. A aba permite testar o mural vazio e restaurar exemplos. Dados ficam no navegador via localStorage (ou apenas na sessão quando o armazenamento está indisponível), com sincronização entre abas da mesma origem. Isso não é atualização entre visitantes nem uma área administrativa protegida.
 
